@@ -1,0 +1,100 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# FastAPI / Uvicorn logs
+*.log
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+coverage.*
+.cache
+pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+*.mocha/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# dotenv environment variables
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# IDEs and editor-specific files
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.vscode/
+*.code-workspace
+
+# PyCharm project files
+*.iml
+*.iws
+*.ipr
+
+# macOS-specific files
+.DS_Store
+
+# Thumbnails
+._*
+
+# Optional virtualenv
+.venv/
+
+# Mypy type check report
+.mypy_cache/
+.dmypy.json
+dmypy.json
+__pycache__
+
+# Pyright static type checking
+.pyright/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.save
+*.log
+
+# FastAPI project-specific
+# Ignore SQLite DB files if you're using SQLite for local development
+*.sqlite3
+*.db
+
+# Ignore compiled files
+*.pyo
+*.pyd
+*.dll
+*.exe
