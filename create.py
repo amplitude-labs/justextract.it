@@ -2,14 +2,12 @@ import requests
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
-UNKEY_API_ID = os.getenv("UNKEY_API_ID")
-UNKEY_ROOT_KEY = os.getenv("UNKEY_ROOT_KEY")
 
 def createKey():
-    url = "https://api.unkey.dev/v1/keys.createKey"
+    UNKEY_API_ID = os.getenv("UNKEY_API_ID")
+    UNKEY_ROOT_KEY = os.getenv("UNKEY_ROOT_KEY")
 
+    url = "https://api.unkey.dev/v1/keys.createKey"
     payload = {
         "apiId": UNKEY_API_ID,
         "prefix": "fast_api",

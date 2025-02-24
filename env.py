@@ -1,10 +1,11 @@
+import json
 import boto3
 from botocore.exceptions import ClientError
 import os
 
 
-def setup_secrets():
-    secret_name = "justextract-unkey-secrets"
+def get_secret(secret):
+    secret_name = secret
     region_name = "ap-southeast-1"
 
     session = boto3.session.Session()
@@ -20,5 +21,18 @@ def setup_secrets():
     except ClientError as e:
         raise e
 
-    os.environ["UNKEY_API_ID"] = get_secret_value_response['UNKEY_API_ID']
-    os.environ["UNKEY_ROOT_KEY"] = get_secret_value_response['UNKEY_ROOT_KEY']
+    secret = get_secret_value_response['SecretString']
+    return json.loads(secret)
+
+
+def setup_secrets():
+    nexai_rds_secrets = get_secret("justextract-unkey-secrets")
+    os.environ["UNKEY_API_ID"] = nexai_rds_secrets["UNKEY_API_ID"]
+    os.environ["UNKEY_ROOT_KEY"] = nexai_rds_secrets["UNKEY_ROOT_KEY"]
+    os.environ["UNKEY_HARDCODED_KEY"] = nexai_rds_secrets["UNKEY_HARDCODED_KEY"]
+
+    nexai_ai_secrets = get_secret("nexai-ai-secrets")
+    os.environ["OPENAI_API_KEY"] = nexai_ai_secrets["openaiApiKey"]
+
+    nexai_ai_secrets = get_secret("GEMINI_API_KEY")
+    os.environ["GEMINI_API_KEY"] = nexai_ai_secrets["GEMINI_API_KEY"]
