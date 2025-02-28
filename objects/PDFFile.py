@@ -30,6 +30,20 @@ class PDFFile:
     def __init__(self, filepath: str):
         self.document = fitz.open(filepath)
         self.filepath = filepath
+        self.filter_mappings = {
+            PageNumberFilter: self.filter_by_page_number,
+            PageOrientationFilter: self.filter_by_page_orientation,
+            ContentTypeFilter: self.filter_by_content_type,
+            CustomFilter: self.filter_by_custom_requirement,
+            KeywordFilter: self.filter_by_keywords
+        }
+        self.filter_names = {
+            "PageNumberFilter": PageNumberFilter,
+            "PageOrientationFilter": PageOrientationFilter,
+            "ContentTypeFilter": ContentTypeFilter,
+            "CustomFilter": CustomFilter,
+            "KeywordFilter": KeywordFilter
+        }
 
     def get_nodes(self) -> list[NodeEnum]:
         client = genai.Client(api_key=os.environ['GEMINI_API_KEY'])

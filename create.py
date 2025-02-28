@@ -13,7 +13,7 @@ def createKey():
         "prefix": "fast_api",
         "name": "FastAPI",
         "meta": {"randomNumber": 13213131141},
-        "remaining": 3
+        "remaining": 300
     }
 
     headers = {

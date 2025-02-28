@@ -10,4 +10,5 @@ PyMuPDF==1.25.2
 openai==1.60.2
 pillow==11.1.0 
 python-multipart==0.0.20
+psycopg2-binary==2.9.9
 google-genai==1.2.0 
